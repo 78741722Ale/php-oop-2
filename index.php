@@ -2,8 +2,6 @@
 
 /* Richiamo il componente di classe padre per i Prodotti */
 require __DIR__ . "/Models/Products.php";
-/* Richiamo il componente di classe figlia per il Singolo prodotto */
-require __DIR__ . "/Models/Product.php";
 /* Richiamo il componente di classe padre per gli Utenti */
 require __DIR__ . "/Models/Users.php";
 /* Richiamo il componente di classe padre per il Singolo utente */
@@ -28,16 +26,10 @@ Il pagamento avviene con la carta di credito, che non deve essere scaduta.
 carta di credito appartiene a user singolo
 */
 
-/* Provo a verificare Utente */
+/* String $nome, String $cognome, Int $eta, String $email, String $payment, Int $id_user */
+$istanza = new User('Alessandro', 'Pecorilla', 27, 'Via Leonardo Da Vinci 5', 'prova@prova.com', 'Bancomat', 555);
+var_dump("Questa è l'istanza di User");
+var_dump($istanza);
 
-$users = [
-    new User('Alessandro', 'Pecorilla', 'Leonardo Da Vinci N°5', 'Prova@prova.com', 'Bancomat', 555, 27, 'prova'),
-    new User('Fabiola', 'Pacifici', 'Leonardo Da Vinci N°15', 'Prova2@prova2.com', 'Contanti', 556, 33, 'prova2'),
-];
-
-var_dump("Questa è la verifica dell'array di classi User");
-var_dump($users);
-
-$prodotto = new Products('Cariola', 'Strumento', 'E uno strumento', 55 , 'Non lo so', 20);
 
 ?>
