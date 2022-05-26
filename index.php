@@ -1,5 +1,14 @@
 <?php 
 
+/* Richiamo il componente di classe padre per i Prodotti */
+require __DIR__ . "/Models/Products.php";
+/* Richiamo il componente di classe figlia per il Singolo prodotto */
+require __DIR__ . "/Models/Product.php";
+/* Richiamo il componente di classe padre per gli Utenti */
+require __DIR__ . "/Models/Users.php";
+/* Richiamo il componente di classe padre per il Singolo utente */
+require __DIR__ . "/Models/User.php";
+
 /* 
 Consegna : 
 L'e-commerce vende prodotti per gli animali.
