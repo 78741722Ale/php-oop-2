@@ -40,6 +40,10 @@ var_dump($istanza_users);
 $istanza_products = new Products('Sedia', 'Oggetto Inanimato', 'Serve a Sedersi', 50, 'Serve a Sedersi');
 var_dump("Questa è l'istanza di Products");
 var_dump($istanza_products);
+/*  */
+var_dump("Questi sono i Methods di Products");
+var_dump($istanza_products->parla()); // Qua richiamo la funzione interna di Products
+var_dump("Il valore del prezzo in Products è : " . $istanza_products->getSpecie(50)); // Qua richiamo la funzione interna di Products per il prezzo
 
 
 

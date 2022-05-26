@@ -9,8 +9,8 @@ class Products {
     public $utility; // Utilitizzo del prodotto
 
     /* Avvio un method */
-    public function getSpecie(){
-        return $this->price; // essendo protetto $famiglia lo salvo in una funzione pubblica
+    public function getSpecie($price){
+        return $this->price = $price; // essendo protetto $famiglia lo salvo in una funzione pubblica
     }
     /* Avvio altro method per valutare ereditarietà */
     public function parla() {
