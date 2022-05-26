@@ -9,8 +9,6 @@ class Users {
     public $email; // indirizzo email
     public $payment; // pagamenti
 
-    /* Method Goes Here */
-    
     /* Definisco un construct */
     function __construct(String $nome, String $cognome, Int $eta, String $indirizzo, String $email, String $payment) {
         /* Definisco le istanze all'interno del construtto */
