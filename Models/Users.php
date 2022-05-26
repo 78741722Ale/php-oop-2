@@ -15,8 +15,8 @@ class Users {
     function __construct(String $nome, String $cognome, Int $eta, String $indirizzo, String $email, String $payment) {
         /* Definisco le istanze all'interno del construtto */
         $this->nome = $nome;
-        $this->cognome = $type;
-        $this->eta = $desc;
+        $this->cognome = $cognome;
+        $this->eta = $eta;
         $this->indirizzo = $indirizzo;
         $this->email = $email;
         $this->payment = $payment;

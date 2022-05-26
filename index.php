@@ -27,9 +27,16 @@ carta di credito appartiene a user singolo
 */
 
 /* String $nome, String $cognome, Int $eta, String $email, String $payment, Int $id_user */
-$istanza = new User('Alessandro', 'Pecorilla', 27, 'Via Leonardo Da Vinci 5', 'prova@prova.com', 'Bancomat', 555);
+$istanza_user = new User('Alessandro', 'Pecorilla', 27, 'Via Leonardo Da Vinci 5', 'prova@prova.com', 'Bancomat', 555);
 var_dump("Questa è l'istanza di User");
-var_dump($istanza);
+var_dump($istanza_user);
+
+/* String $nome, String $cognome, Int $eta, String $indirizzo, String $email, String $payment */
+$istanza_users = new Users('Alessandro', 'Pecorilla', 27, 'Via Leonardo Da Vinci 5', 'prova@prova.com', 'Bancomat');
+var_dump("Questa è l'istanza di Users");
+var_dump($istanza_users);
+
+
 
 
 ?>
