@@ -5,10 +5,17 @@ class Products {
     public $nome; // Nome Prodotto
     public $type; // Tipologia Prodotto
     public $desc; // Descrizione prodotto
-    public $price; // Prezzo
+    protected $price; // Prezzo
     public $utility; // Utilitizzo del prodotto
 
-    /* Method Goes Here */
+    /* Avvio un method */
+    public function getSpecie(){
+        return $this->price; // essendo protetto $famiglia lo salvo in una funzione pubblica
+    }
+    /* Avvio altro method per valutare ereditarietà */
+    public function parla() {
+        return "Io Parlo da Products";
+    }
 
     /* Definisco un construct */
     function __construct(String $nome, String $type, String $desc, Int $price, String $utility) {

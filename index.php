@@ -36,6 +36,14 @@ $istanza_users = new Users('Alessandro', 'Pecorilla', 27, 'Via Leonardo Da Vinci
 var_dump("Questa è l'istanza di Users");
 var_dump($istanza_users);
 
+/* String $nome, String $type, String $desc, Int $price, String $utility */
+$istanza_products = new Products('Sedia', 'Oggetto Inanimato', 'Serve a Sedersi', 50, 'Serve a Sedersi');
+var_dump("Questa è l'istanza di Products");
+var_dump($istanza_products);
+
+
+
+
 
 
 
