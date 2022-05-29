@@ -23,15 +23,20 @@ trait userTrait {
         $this->price = $price;
         $this->id_user = $id_user;
         $this->sales = $sales;
-
+        /* Se l'id utente è uguale a 0 */
         if($this->id_user == 0) 
-        {   /* Se l'id utente è uguale a 0 */
-            var_dump("L'utente dev'essere registrato per ottenere lo sconto del 20%");
-            /* return $this->price; */
+        {   var_dump("L'utente dev'essere registrato per ottenere lo sconto del 20%");
+            return $this->price;
         } 
-        elseif($this->id_user !== 0) 
-        {   /* Altrimenti applica lo sconto */
+        /* Altrimenti applica lo sconto */
+        elseif($this->id_user !== 0) {   
             $this->price = $this->price * $this->sales;
+        }
+        /* Provo ad Avviare un'eccezione nel caso in cui il prezzo sia 0 */
+        /* Errore dell'eccezione scatenato 
+        Risultato : PHP Fatal error:  Uncaught Exception: il prezzo non può essere pari a 0 in C:\MAMP\htdocs\PHP\php-oop-2\Models\User.php:40*/
+        if ($this->price == 0) {
+            throw new Exception("il prezzo non può essere pari a 0");
         }
     }
 }

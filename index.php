@@ -30,7 +30,7 @@ $pallina = new Products("Pallina", "Oggetto Inanimato", "Oggetto inanimato senza
 $pallina->setSales(15, 200, 0.2); // Applico il prezzo
 /*********/
 $astuccio = new Products("Astuccio", "Oggetto Inanimato", "Oggetto Inanimato", "Serve per raccogliere i tuoi strumenti");
-$astuccio->setSales(5, 0, 0.2); // Applico il prezzo
+$astuccio->setSales(10, 0, 0.2); // Applico il prezzo
 /*********/
 $pentola = new Products("Pentola", "Oggetto Inanimato", "Oggetto Inanimato", "Serve per cucinare");
 $pentola->setSales(25, 100, 0.2); // Applico il prezzo
@@ -39,6 +39,5 @@ $pentola->setSales(25, 100, 0.2); // Applico il prezzo
 $products = []; // Array vuoto, pusho tutte le istanze
 array_push($products, $pallina, $astuccio, $pentola);
 var_dump("Questo è il var_dump finale di prodotti : ");
-var_dump($products)
- 
+var_dump($products);
 ?>
