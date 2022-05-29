@@ -13,21 +13,26 @@ trait userTrait {
     /* Funzione Pubblica per ricavare lo sconto in base all'utente */
     /* Dovrei spostarla in products dato che di la c'è il prezzo */
     /*  Qui non ha senso utiliizzare il prezzo */
+    /** 
+     * @78741722Ale => Funzione per calcolare il prezzo in base all'id User
+     * @param price => Prezzo del prodotto
+     * @param id_user => ID user
+     * @param sales => lo sconto
+     */
     public function setSales(Int $price, Int $id_user, float $sales) {
         $this->price = $price;
         $this->id_user = $id_user;
         $this->sales = $sales;
-        
+
         if($this->id_user == 0) 
         {   /* Se l'id utente è uguale a 0 */
             var_dump("L'utente dev'essere registrato per ottenere lo sconto del 20%");
-            return $this->price;
+            /* return $this->price; */
         } 
-        elseif($this->id_user != 0) 
+        elseif($this->id_user !== 0) 
         {   /* Altrimenti applica lo sconto */
-            return $this->price * $this->sales;
+            $this->price = $this->price * $this->sales;
         }
-
     }
 }
 
@@ -58,10 +63,10 @@ class User {
 }
 
 /* Avvio dell'istanza di User */
-$istanza_user = new User('Alessandro', 'Pecorilla', 27, 'Via di qua', 'prova@prova.com', 'Bancomat', 'Alessandro', 'Password');
+/* $istanza_user = new User('Alessandro', 'Pecorilla', 27, 'Via di qua', 'prova@prova.com', 'Bancomat', 'Alessandro', 'Password');
 var_dump("Questa è l'istanza di User");
-var_dump($istanza_user);
+var_dump($istanza_user); */
 /* Qui il trait funziona */
-var_dump($istanza_user->setSaySomething("Questo è un trait presente solo in User.php"));
+/* var_dump($istanza_user->setSaySomething("Questo è un trait presente solo in User.php")); */
 
 ?>

@@ -25,4 +25,20 @@ Il pagamento avviene con la carta di credito, che non deve essere scaduta.
 carta di credito appartiene a user singolo
 */
 
+/* Avvio nuove istanze */
+$pallina = new Products("Pallina", "Oggetto Inanimato", "Oggetto inanimato senza utilizzo", "Non ha utilizzo");
+$pallina->setSales(15, 200, 0.2); // Applico il prezzo
+/*********/
+$astuccio = new Products("Astuccio", "Oggetto Inanimato", "Oggetto Inanimato", "Serve per raccogliere i tuoi strumenti");
+$astuccio->setSales(5, 0, 0.2); // Applico il prezzo
+/*********/
+$pentola = new Products("Pentola", "Oggetto Inanimato", "Oggetto Inanimato", "Serve per cucinare");
+$pentola->setSales(25, 100, 0.2); // Applico il prezzo
+
+/* Per dichiarare le istanze a schermo apro un array vuoto e pusho tutto al suo interno */
+$products = []; // Array vuoto, pusho tutte le istanze
+array_push($products, $pallina, $astuccio, $pentola);
+var_dump("Questo è il var_dump finale di prodotti : ");
+var_dump($products)
+ 
 ?>

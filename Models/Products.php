@@ -1,6 +1,5 @@
 <?php 
 
-
 class Products {
     /* Trait nella classe products */
     use userTrait;
@@ -22,12 +21,11 @@ class Products {
         $this->utility = $utility;
     }
 } 
-/* Avvio verifiche delle istanze */
-$istanza_products = new Products("Pallina", "Oggetto Inanimato", "Oggetto inanimato senza utilizzo", "Non ha utilizzo");
-var_dump("Questo è il var dump dell'istanza presente solo in products");
+/* var_dump("Questo è il var dump dell'istanza presente solo in products");
 var_dump($istanza_products);
-var_dump($istanza_products->setSaySomething("Questo è un trait presente solo in Products.php"));
-var_dump("Il prezzo scontato equivale a : " . $istanza_products->setSales(100, 500, 0.2));
-
-
+var_dump($istanza_products->setSaySomething("Questo è un trait presente solo in Products.php")); */
+/* Funzione tramite trait funzionante! */
+/* var_dump("Il prezzo scontato equivale a : " . $istanza_products->setSales(30, 0, 0.2));
+var_dump($istanza_products);
+ */
 ?>
