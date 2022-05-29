@@ -5,7 +5,10 @@ trait userTrait {
     public $string; // Stringa del trait per verificarne l'effettivo utilizzo
     public $id_user; // id user, nella condizione set/get
     public $sales; // sconto se registrato
-    public $is_register; // Variabile booleana se fosse o meno 
+    public $is_register; // Variabile booleana se fosse o meno
+    public $payment; // pagamenti 
+    public $date; // Data attuale
+    public $scadenza; // Scadenza bancomat
     /* Function per verificare funzionamento del trait */
     public function setSaySomething(String $string) {
         return $this->string = $string;
@@ -20,27 +23,36 @@ trait userTrait {
      * @param id_user => ID user
      * @param sales => lo sconto
      */
-    public function setSales(Int $price, Int $id_user, float $sales, bool $is_register) {
-        $this->price = $price;
+    public function setSales(Int $price, Int $id_user, float $sales, bool $is_register, String $payment, String $date, String $scadenza) {
+        $this->price = $price; 
         $this->id_user = $id_user;
         $this->sales = $sales;
         $this->is_register = $is_register;
+        $this->payment = $payment;
+        $this->date = date("F d Y");
+        $this->scadenza = $scadenza;
         /* Se l'id utente è uguale a 0 */
         if($this->id_user == 0) 
         {   var_dump("L'utente dev'essere registrato per ottenere lo sconto del 20%");
             return $this->price;
-        } 
-        /* Altrimenti applica lo sconto */
+        } /* Altrimenti applica lo sconto */
         elseif($this->id_user !== 0) {   
             $this->price = $this->price * $this->sales;
         }
-        /* Condizione se il valore booleano è false */
+
+        /* Condizione del valore boolean is_Registered */
         if($this->is_register == true) {
             var_dump("Hai diritto a uno sconto del 20%");
         }elseif ($this->is_register == false) {
             var_dump("Mi dispiace, prezzo pieno!");
         }
 
+        /* Condizione per il pagamento Entrambe devono essere vere */
+        if($this->payment == 'Bancomat' || $this->date != $this->scadenza ) {
+            var_dump("Attenzione, Pagameto rifiutato");
+        } else {
+            var_dump("Pagameto Accettato");
+        }
 
         /* Provo ad Avviare un'eccezione nel caso in cui il prezzo sia 0 */
         /* Errore dell'eccezione scatenato 
@@ -60,7 +72,6 @@ class User {
     public $eta; // Età utente
     public $indirizzo; // Indirizzo utente 
     public $email; // indirizzo email
-    public $payment; // pagamenti
     protected $username; // il nome dell'utente --> dovrebbe essere protected
     protected $password; // la password dell'utente --> dovrebbe essere restricted
 
@@ -71,7 +82,6 @@ class User {
         $this->eta = $eta;
         $this->indirizzo = $indirizzo;
         $this->email = $email;
-        $this->payment = $payment;
         $this->username = $username; 
         $this->password = $password;
     }   
