@@ -1,9 +1,10 @@
 <?php 
 
-/* Richiamo il componente di classe padre per i Prodotti */
-require __DIR__ . "/Models/Products.php";
+
 /* Richiamo il componente di classe padre per l'utente */
-require __DIR__ . "/Models/User.php";
+include __DIR__ . "/Models/User.php";
+/* Richiamo il componente di classe padre per i Prodotti */
+include __DIR__ . "/Models/Products.php";
 
 /* 
 Consegna : 

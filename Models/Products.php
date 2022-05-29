@@ -1,6 +1,9 @@
 <?php 
 
+
 class Products {
+    /* Trait nella classe products */
+    use userTrait;
     public $nome; // Nome Prodotto
     public $type; // Tipologia Prodotto
     public $desc; // Descrizione prodotto
@@ -37,11 +40,7 @@ class Products {
 $istanza_products = new Products("Pallina", "Oggetto Inanimato", "Oggetto inanimato senza utilizzo", 100, "Non ha utilizzo");
 var_dump("Questo è il var dump dell'istanza presente solo in products");
 var_dump($istanza_products);
-/* Ora provo a verificare la funzione recupero */
-var_dump($istanza_products->recupero(0.2, 555));
-
-
-
+var_dump($istanza_products->setSaySomething("Questo è un trait presente solo in Products.php"));
 
 
 ?>

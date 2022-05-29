@@ -1,6 +1,18 @@
 <?php 
 
+/* Avvio di un trait */
+trait userTrait {
+    public $string;
+    /* Function per verificare funzionamento del trait */
+    public function setSaySomething(String $string) {
+        return $this->string = $string;
+    }
+}
+
 class User {
+    /* Passo tramite Traits */
+    use userTrait;
+
     public $nome; // Nome Persona
     public $cognome; // Cognome Persona
     public $eta; // Età utente
@@ -27,20 +39,10 @@ class User {
         $this->username = $username; 
         $this->password = $password;
     }   
-    /* Avvio methods per verificare collegamento */
-    public function parla() {
-        return "Io Parlo da User";
-    }
-    /* Method per recuperare l'id e lo sconto */
-    public function recupero(User $sales, User $id_user) {
-        $this->sales = $sales;
-        $this->id_user = $id_user;
-    }
-
-
 
     /* Funzione Pubblica per ricavare lo sconto in base all'utente */
     /* Dovrei spostarla in products dato che di la c'è il prezzo */
+    /*  Qui non ha senso utiliizzare il prezzo */
     public function setSales($price, $id_user, $sales) {
         if($this->id_user == 0) 
         {   /* Se l'id utente è uguale a 0 */
@@ -53,23 +55,15 @@ class User {
         }
     }
 
-
-
 }
 
 /* Avvio dell'istanza di User */
 $istanza_user = new User('Alessandro', 'Pecorilla', 27, 'Via di qua', 'prova@prova.com', 'Bancomat', 100, 0.2, 555, 'Alessandro', 'Password');
 var_dump("Questa è l'istanza di User");
 var_dump($istanza_user);
-/* Ora verifico la moltiplicazione di setSales */
-var_dump("Questa è l'istanza della moltiplicazione");
-var_dump($istanza_user->setSales(100, 555, 0.2));
-var_dump($istanza_user->parla())
-
-
 /* Funziona, se non fosse per il fatto che il Prezzo non può stare qua dentro */
-
-
-
+var_dump("Il prezzo scontato equivale a : " . $istanza_user->setSales(100, 555, 0.2));
+/* Qui il trait funziona */
+var_dump($istanza_user->setSaySomething("Questo è un trait presente solo in User.php"));
 
 ?>
