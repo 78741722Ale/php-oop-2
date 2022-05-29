@@ -5,6 +5,7 @@ trait userTrait {
     public $string; // Stringa del trait per verificarne l'effettivo utilizzo
     public $id_user; // id user, nella condizione set/get
     public $sales; // sconto se registrato
+    public $is_register; // Variabile booleana se fosse o meno 
     /* Function per verificare funzionamento del trait */
     public function setSaySomething(String $string) {
         return $this->string = $string;
@@ -19,10 +20,11 @@ trait userTrait {
      * @param id_user => ID user
      * @param sales => lo sconto
      */
-    public function setSales(Int $price, Int $id_user, float $sales) {
+    public function setSales(Int $price, Int $id_user, float $sales, bool $is_register) {
         $this->price = $price;
         $this->id_user = $id_user;
         $this->sales = $sales;
+        $this->is_register = $is_register;
         /* Se l'id utente è uguale a 0 */
         if($this->id_user == 0) 
         {   var_dump("L'utente dev'essere registrato per ottenere lo sconto del 20%");
@@ -32,6 +34,14 @@ trait userTrait {
         elseif($this->id_user !== 0) {   
             $this->price = $this->price * $this->sales;
         }
+        /* Condizione se il valore booleano è false */
+        if($this->is_register == true) {
+            var_dump("Hai diritto a uno sconto del 20%");
+        }elseif ($this->is_register == false) {
+            var_dump("Mi dispiace, prezzo pieno!");
+        }
+
+
         /* Provo ad Avviare un'eccezione nel caso in cui il prezzo sia 0 */
         /* Errore dell'eccezione scatenato 
         Risultato : PHP Fatal error:  Uncaught Exception: il prezzo non può essere pari a 0 in C:\MAMP\htdocs\PHP\php-oop-2\Models\User.php:40*/
