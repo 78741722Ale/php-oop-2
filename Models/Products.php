@@ -1,14 +1,11 @@
 <?php 
-/* Classe Genitore */
 
 class Products {
     public $nome; // Nome Prodotto
     public $type; // Tipologia Prodotto
     public $desc; // Descrizione prodotto
-    protected $price; // Prezzo
+    public $price; // Prezzo
     public $utility; // Utilitizzo del prodotto
-    /* Avvio lo sconto per utenti */
-    protected $sale; // sconto
 
     /* Avvio un method */
     public function getSpecialPrice($price, $sale){
@@ -19,26 +16,32 @@ class Products {
     public function parla() {
         return "Io Parlo da Products";
     }
+    /* Avvio altro method per recuperare il prezzo e spostarlo in User */
+    public function recupero(User $sales, User $id_user) {
+        $this->sales = $sales;
+        $this->id_user = $id_user;
+    }
 
-    /* Ora provo a collegare User (che ha l'id) con Products */
-/*     public function getSales(User $id_user, Int $sale) {
-        var_dump("Questo è l'id User" . $id_user);
-        var_dump("Questo è lo sconto" . $sale);
-        return $this->id_user = $id_user;
-        return $this->sale = $sale;
-    }  */
 
     /* Definisco un construct */
-    function __construct(String $nome, String $type, String $desc, Int $price, String $utility, Int $sale ) {
+    function __construct(String $nome, String $type, String $desc, Int $price, String $utility) {
         /* Definisco le istanze all'interno del construtto */
         $this->nome = $nome;
         $this->type = $type;
         $this->desc = $desc;
         $this->price = $price;
         $this->utility = $utility;
-        /* Aggiunto lo sconto */
-        $this->sale = $sale;
     }
 } 
+/* Avvio verifiche delle istanze */
+$istanza_products = new Products("Pallina", "Oggetto Inanimato", "Oggetto inanimato senza utilizzo", 100, "Non ha utilizzo");
+var_dump("Questo è il var dump dell'istanza presente solo in products");
+var_dump($istanza_products);
+/* Ora provo a verificare la funzione recupero */
+var_dump($istanza_products->recupero(0.2, 555));
+
+
+
+
 
 ?>
